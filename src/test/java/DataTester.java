@@ -41,4 +41,11 @@ public class DataTester
         result = validator.isPasswordOfMinimum8Characters("3344fdsgyug");
         Assert.assertEquals(true,result);
     }
+    // Test case for validating password of at least 1 uppercase character
+    @Test
+    public void givenPassword_WhenHaveAtLeastOneUpperCaseCharacter_ShouldReturnTrue()
+    {
+        result = validator.isPasswordOfMinimumUpperCaseCharacter("Prajdfghkgf");
+        Assert.assertEquals(true,result);
+    }
 }
