@@ -34,4 +34,11 @@ public class DataTester
         result = validator.validateMobileNumber("91 9823808498");
         Assert.assertEquals(true,result);
     }
+    // Test case for validating password of minimum 8 characters
+    @Test
+    public void givenPassword_WhenHaveMinimumLengthOf8Characters_ShouldReturnTrue()
+    {
+        result = validator.isPasswordOfMinimum8Characters("3344fdsgyug");
+        Assert.assertEquals(true,result);
+    }
 }
