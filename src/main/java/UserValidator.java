@@ -6,12 +6,13 @@ public class UserValidator
     String COUNTRY_CODE="91";
     String patternForFirstName="^[A-Z]{1}[a-z]{2,}$";
     String patternForLastName="^[A-Z]{1}[a-z]{2,}$";
-    String patternFor8characterPassword="^.{8,}";
-    String patternForMinimumOneUpperCaseCharacterPassword="[A-Z0-9a-z]*[A-Z][A-Z0-9a-z]*";
-    String patternForExactlyOneSpecialCharacterPassword="[A-Z0-9a-z]*[!@#%^&]{1}[A-Z0-9a-z]*";
-    String patternForMinimumOneNumericCharacterPassword="[A-Z0-9a-z]*[0-9][A-Z0-9a-z]*";
+    String patternFor8characterPassword="^.{8,}$";
+    String patternForMinimumOneUpperCaseCharacterPassword=".*[A-Z]+.*";
+    String patternForExactlyOneSpecialCharacterPassword="[A-Z0-9a-z]*[!@#%&][A-Z0-9a-z]*";
+    String patternForMinimumOneNumericCharacterPassword=".*[0-9].*";
     String patternForEmailId="^[a-z]{1,}([.]?[-]?[+]?[a-z0-9]{1,})?[@]{1}[a-z0-9]{1,}[.]{1}[a-z]{2,4}([.]?[a-z]{2,4})?$";
     String patternForMobileNumber="^"+COUNTRY_CODE+"[ ][9876]{1}[0-9]{9}$";
+    boolean result = true;
     // Method for matching Regex and input
     public boolean validator(String regexPattern, String input)
     {
@@ -58,5 +59,23 @@ public class UserValidator
     public boolean isPasswordOfExactlyOneSpecialCharacter(String password)
     {
         return validator(patternForExactlyOneSpecialCharacterPassword,password);
+    }
+    public boolean combineAllRulesForPassword(String password)
+    {
+        boolean outcome = false;
+        if (isPasswordOfMinimum8Characters(password) == true)
+        {
+            if (isPasswordOfMinimumUpperCaseCharacter(password) == true)
+            {
+                if (isPasswordOfMinimumOneNumericCharacter(password) == true)
+                {
+                    if (isPasswordOfExactlyOneSpecialCharacter(password) == true)
+                    {
+                         outcome=true;
+                    }
+                }
+            }
+        }
+        return outcome;
     }
 }
