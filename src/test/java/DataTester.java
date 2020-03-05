@@ -27,4 +27,11 @@ public class DataTester
         result = validator.validateEmailId("abc@yahoo.com");
         Assert.assertEquals(true,result);
     }
+    // Test case for validating mobile number
+    @Test
+    public void givenMobileNumber_WhenProper_ShouldReturnTrue()
+    {
+        result = validator.validateMobileNumber("91 9823808498");
+        Assert.assertEquals(true,result);
+    }
 }
