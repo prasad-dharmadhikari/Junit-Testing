@@ -4,36 +4,41 @@ import java.util.regex.Pattern;
 public class UserValidator
 {
     String COUNTRY_CODE="91";
+    String patternForFirstName="^[A-Z]{1}[a-z]{2,}$";
+    String patternForLastName="^[A-Z]{1}[a-z]{2,}$";
+    String patternFor8characterPassword="^.{8,}";
+    String patternForEmailId="^[a-z]{1,}([.]?[-]?[+]?[a-z0-9]{1,})?[@]{1}[a-z0-9]{1,}[.]{1}[a-z]{2,4}([.]?[a-z]{2,4})?$";
+    String patternForMobileNumer="^"+COUNTRY_CODE+"[ ][9876]{1}[0-9]{9}$";
+    // Method for matching Regex and input
+    public boolean validator(String regexPattern, String input)
+    {
+        Pattern p = Pattern.compile(regexPattern);
+        Matcher matcher = p.matcher(input);
+        return matcher.matches();
+    }
     // Method for validating first name using Regex
     public boolean validateFirstName(String firstName)
     {
-        String patternForFirstName="^[A-Z]{1}[a-z]{2,}$";
-        Pattern p = Pattern.compile(patternForFirstName);
-        Matcher matcher = p.matcher(firstName);
-        return matcher.matches();
+        return validator(patternForFirstName,firstName);
     }
     // Method for validating last name using Regex
     public boolean validateLastName(String lastName)
     {
-        String patternForLastName="^[A-Z]{1}[a-z]{2,}$";
-        Pattern p = Pattern.compile(patternForLastName);
-        Matcher matcher = p.matcher(lastName);
-        return matcher.matches();
+        return validator(patternForLastName,lastName);
     }
     // Method for validating email ID using Regex
     public boolean validateEmailId(String emailId)
     {
-        String patternForEmailId="^[a-z]{1,}([.]?[-]?[+]?[a-z0-9]{1,})?[@]{1}[a-z0-9]{1,}[.]{1}[a-z]{2,4}([.]?[a-z]{2,4})?$";
-        Pattern p = Pattern.compile(patternForEmailId);
-        Matcher matcher = p.matcher(emailId);
-        return matcher.matches();
+        return validator(patternForEmailId,emailId);
     }
     // Method for validating mobile number using Regex
     public boolean validateMobileNumber(String mobileNumber)
     {
-        String patternForMobileNumer="^"+COUNTRY_CODE+"[ ][9876]{1}[0-9]{9}$";
-        Pattern p = Pattern.compile(patternForMobileNumer);
-        Matcher matcher = p.matcher(mobileNumber);
-        return matcher.matches();
+        return validator(patternForMobileNumer,mobileNumber);
+    }
+    // Method for validating password of minimum 8 characters using Regex
+    public boolean isPasswordOfMinimum8Characters(String password)
+    {
+        return validator(patternFor8characterPassword,password);
     }
 }
