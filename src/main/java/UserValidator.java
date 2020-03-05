@@ -5,6 +5,13 @@ public class UserValidator
 {
     public static void main(String[] args)
     {
-        System.out.println("Welcome to Junit testing");
+
+    }
+    public boolean validateFirstName(String firstName)
+    {
+        String patternForFirstName="^[A-Z]{1}[a-z]{2,}$";
+        Pattern p = Pattern.compile(patternForFirstName);
+        Matcher matcher = p.matcher(firstName);
+        return matcher.matches();
     }
 }
