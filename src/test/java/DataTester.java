@@ -48,4 +48,11 @@ public class DataTester
         result = validator.isPasswordOfMinimumUpperCaseCharacter("Prajdfghkgf");
         Assert.assertEquals(true,result);
     }
+    // Test case for validating password of at least 1 numeric character
+    @Test
+    public void givenPassword_WhenHaveAtLeastOneNumericCharacter_ShouldReturnTrue()
+    {
+        result = validator.isPasswordOfMinimumOneNumericCharacter("Prajd5fghkgf");
+        Assert.assertEquals(true,result);
+    }
 }
