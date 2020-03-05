@@ -8,8 +8,9 @@ public class UserValidator
     String patternForLastName="^[A-Z]{1}[a-z]{2,}$";
     String patternFor8characterPassword="^.{8,}";
     String patternForMinimumOneUpperCaseCharacterPassword="[A-Z0-9a-z]*[A-Z][A-Z0-9a-z]*";
+    String patternForMinimumOneNumericCharacterPassword="[A-Z0-9a-z]*[0-9][A-Z0-9a-z]*";
     String patternForEmailId="^[a-z]{1,}([.]?[-]?[+]?[a-z0-9]{1,})?[@]{1}[a-z0-9]{1,}[.]{1}[a-z]{2,4}([.]?[a-z]{2,4})?$";
-    String patternForMobileNumer="^"+COUNTRY_CODE+"[ ][9876]{1}[0-9]{9}$";
+    String patternForMobileNumber="^"+COUNTRY_CODE+"[ ][9876]{1}[0-9]{9}$";
     // Method for matching Regex and input
     public boolean validator(String regexPattern, String input)
     {
@@ -35,7 +36,7 @@ public class UserValidator
     // Method for validating mobile number using Regex
     public boolean validateMobileNumber(String mobileNumber)
     {
-        return validator(patternForMobileNumer,mobileNumber);
+        return validator(patternForMobileNumber,mobileNumber);
     }
     // Method for validating password of minimum 8 characters using Regex
     public boolean isPasswordOfMinimum8Characters(String password)
@@ -46,5 +47,10 @@ public class UserValidator
     public boolean isPasswordOfMinimumUpperCaseCharacter(String password)
     {
         return validator(patternForMinimumOneUpperCaseCharacterPassword,password);
+    }
+    // Method for validating password of minimum one numeric character using Regex
+    public boolean isPasswordOfMinimumOneNumericCharacter(String password)
+    {
+        return validator(patternForMinimumOneNumericCharacterPassword,password);
     }
 }
