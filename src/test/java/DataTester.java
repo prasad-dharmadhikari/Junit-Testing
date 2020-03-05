@@ -55,4 +55,11 @@ public class DataTester
         result = validator.isPasswordOfMinimumOneNumericCharacter("Prajd5fghkgf");
         Assert.assertEquals(true,result);
     }
+    // Test case for validating password of exactly one special character
+    @Test
+    public void givenPassword_WhenHaveExactlyOneSpecialCharacter_ShouldReturnTrue()
+    {
+        result = validator.isPasswordOfExactlyOneSpecialCharacter("Prasad97&P");
+        Assert.assertEquals(true,result);
+    }
 }
