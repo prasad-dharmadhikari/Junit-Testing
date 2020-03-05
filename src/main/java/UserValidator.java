@@ -3,10 +3,6 @@ import java.util.regex.Pattern;
 
 public class UserValidator
 {
-    public static void main(String[] args)
-    {
-
-    }
     public boolean validateFirstName(String firstName)
     {
         String patternForFirstName="^[A-Z]{1}[a-z]{2,}$";
