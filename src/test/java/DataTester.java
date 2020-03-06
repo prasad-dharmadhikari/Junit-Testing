@@ -76,4 +76,11 @@ public class DataTester
         result = validator.isPasswordOfExactlyOneSpecialCharacter("Prasad97&P");
         Assert.assertEquals(true,result);
     }
+    // Test case for validating password by combining all rules
+    @Test
+    public void givenPassword_WhenFollowsAllRules_ShouldReturnTrue()
+    {
+        result = validator.combineAllRulesForPassword("Prasad97&P");
+        Assert.assertEquals(true,result);
+    }
 }
