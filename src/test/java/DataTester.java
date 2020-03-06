@@ -5,6 +5,8 @@ import org.junit.Test;
 public class DataTester
 {
     UserValidator validator = new UserValidator();
+    String validEmails[]={"abc@yahoo.com","abc-100@yahoo.com","abc.100@yahoo.com","abc111@abc.com","abc-100@abc.net","abc.100@abc.com.au","abc@1.com","abc@gmail.com.com","abc+100@gmail.com"};
+    String invalidEmails[]= {"abc","abc@.com.my","abc123@gmail.a","abc123@.com","abc123@.com.com",".abc@abc.com","abc()*@gmail.com","abc@%*.com","abc..2002@gmail.com","abc.@gmail.com ","abc@abc@gmail.com","abc@gmail.com.1a","abc@gmail.com.aa.au"};
     boolean result=true;
     // Test case for validating first name
     @Test
@@ -24,8 +26,20 @@ public class DataTester
     @Test
     public void givenEmailId_WhenProper_ShouldReturnTrue()
     {
-        result = validator.validateEmailId("abc@yahoo.com");
-        Assert.assertEquals(true,result);
+        for (String email : validEmails)
+        {
+            result = validator.validateEmailId(email);
+            Assert.assertEquals(true, result);
+        }
+    }
+    @Test
+    public void givenEmailId_WhenImProper_ShouldReturnTrue()
+    {
+        for (String email : invalidEmails)
+        {
+            result = validator.validateEmailId(email);
+            Assert.assertEquals(false, result);
+        }
     }
     // Test case for validating mobile number
     @Test
