@@ -33,7 +33,7 @@ public class DataTester
         }
     }
     @Test
-    public void givenEmailId_WhenImProper_ShouldReturnTrue()
+    public void givenEmailId_WhenImProper_ShouldReturnFalse()
     {
         for (String email : invalidEmails)
         {
