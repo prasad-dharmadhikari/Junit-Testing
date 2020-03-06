@@ -59,4 +59,22 @@ public class UserValidator
     {
         return validator(patternForExactlyOneSpecialCharacterPassword,password);
     }
+    public boolean combineAllRulesForPassword(String password)
+    {
+        boolean outcome = false;
+        if (isPasswordOfMinimum8Characters(password) == true)
+        {
+            if (isPasswordOfMinimumUpperCaseCharacter(password) == true)
+            {
+                if (isPasswordOfMinimumOneNumericCharacter(password) == true)
+                {
+                    if (isPasswordOfExactlyOneSpecialCharacter(password) == true)
+                    {
+                        outcome=true;
+                    }
+                }
+            }
+        }
+        return outcome;
+    }
 }
