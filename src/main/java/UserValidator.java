@@ -61,20 +61,20 @@ public class UserValidator
     }
     public boolean combineAllRulesForPassword(String password)
     {
-        boolean outcome = false;
-        if (isPasswordOfMinimum8Characters(password) == true)
+        boolean outCome = false;
+        if (isPasswordOfMinimum8Characters(password))
         {
-            if (isPasswordOfMinimumUpperCaseCharacter(password) == true)
+            if (isPasswordOfMinimumUpperCaseCharacter(password))
             {
-                if (isPasswordOfMinimumOneNumericCharacter(password) == true)
+                if (isPasswordOfMinimumOneNumericCharacter(password))
                 {
-                    if (isPasswordOfExactlyOneSpecialCharacter(password) == true)
+                    if (isPasswordOfExactlyOneSpecialCharacter(password))
                     {
-                        outcome=true;
+                        outCome=true;
                     }
                 }
             }
         }
-        return outcome;
+        return outCome;
     }
 }
